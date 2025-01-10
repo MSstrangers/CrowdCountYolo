@@ -329,8 +329,21 @@ def detect(save_img=False):
 
         # Stream results
         if view_img:
-            cv2.imshow(str(p), im0)
-            cv2.waitKey(1)  # wait atleast 1ms
+
+            screen_width = 1920  # Adjust to your monitor's width
+            screen_height = 1080  # Adjust to your monitor's height
+
+            scale_factor = min(screen_width / im0.shape[1], screen_height / im0.shape[0])
+            resized_width = int(im0.shape[1] * scale_factor)
+            resized_height = int(im0.shape[0] * scale_factor)
+            resized_frame = cv2.resize(im0, (resized_width, resized_height))
+
+
+            cv2.imshow(str(p), resized_frame)
+            cv2.waitKey(1)  # Wait at least 1ms
+
+            # cv2.imshow(str(p), im0)
+            # cv2.waitKey(1)  # wait atleast 1ms
 
         # Save results
         save_img = False
