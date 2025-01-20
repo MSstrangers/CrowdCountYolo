@@ -53,3 +53,12 @@ python detect.py \
   * uses cv2_imshow() which works in colab
 * --person: display and uses person detections only
 * --heads: displays and uses head detections only
+
+
+# NVIDIA Jetson Orin Setup
+
+Torch should be installed with following version:
+```sh
+export TORCH_INSTALL=https://developer.download.nvidia.com/compute/redist/jp/v61/pytorch/torch-2.5.0a0+872d972e41.nv24.08.17622132-cp310-cp310-linux_aarch64.whl
+```
+
